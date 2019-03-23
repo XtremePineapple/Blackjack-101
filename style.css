@@ -38,27 +38,9 @@
 }
 
 
-<<<<<<< HEAD
 
 .playerHand{
 background-color: #203D0F;
-=======
-h2{
-    font-size: 25px;
-    font-family: 'Lobster';
-}
-/* this will turn the button text greay when they shouldn't click it */
-.deactivated{
-    color: grey;
-}
-
-.form{
-    font-family: 'Lobster';
-    font-size: 20px;
-    align-content: right;
-}
-.player-hand{
->>>>>>> 2a797ee8f0278d97e81e655e714a63aec65c0a90
     display: flex;
     height: 300px;
     border: solid;
@@ -143,7 +125,6 @@ h2{
 .dealerControls{
     width:15%;
     border:solid;
-<<<<<<< HEAD
     border-top-width: 5px;
     border-bottom-width: 5px;
     border-left-width: 2.5px;
@@ -168,31 +149,3 @@ h2{
     padding: 20px;
     font-family: 'Lobster';
 }
-=======
-    border-color: black;
-}
-
-#overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 75%; /* Full width (cover the whole page) */
-    height: 50%; /* Full height (cover the whole page) */
-    top: 0; 
-    left: 0;
-    right: 0;
-    bottom: 0;'
-    background-color: black;
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
-  }
-
-  #text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: black;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-  }
->>>>>>> 2a797ee8f0278d97e81e655e714a63aec65c0a90
