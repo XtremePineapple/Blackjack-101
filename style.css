@@ -38,7 +38,10 @@
     font-family: 'Lobster';
 }
 
-
+h2{
+    font-family: 'Lobster';
+    font-size: 25px;
+}
 
 .playerHand{
 background-color: #203D0F;
@@ -177,3 +180,8 @@ background-color: #203D0F;
     -ms-transform: translate(-50%,-50%);
   }
 
+  .form{
+    font-family: 'Lobster';
+    font-size: 25px;
+    margin: 25px 25px 25px 25px;
+  }
