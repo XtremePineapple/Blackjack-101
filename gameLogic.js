@@ -43,9 +43,18 @@ let deckUpdate = {}; //Sample Return
 //     ]
 // }
 
+
 function reShuffle(){
-    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
-    deckID = deckUpdate.deck_id;
+    
+    const fetchDeckId = async () => {
+        let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+        let json =  await response.json();
+        deckID = json.deck_id;
+        console.log(`deck id fetched from reshuffle: ${deckID}`);l
+    }
+    
+    fetchDeckId();   
+
     playerHand = [];
     dealerHand = [];
     playerScore = 0;
@@ -54,14 +63,40 @@ function reShuffle(){
     isAce_D = false;
 }
 
+
+
 function playerDrawAndScore(card){
+
+    let cardValue;
+    let cardImage;
+
+    const fetchDeckId = async () => {
+        let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+        let json =  await response.json();
+        deckID = json.deck_id;
+        console.log(`deck id fetched from reshuffle: ${deckID}`);
+    }
+    
+    fetchDeckId(); 
+
+    console.log(deckID);
+
+    const fetchCard = async () => {
+        let response = await fetch("https://deckofcardsapi.com/api/deck/jihhvb8gyasc/draw/?count=1");
+        let json =  await response.json();
+        console.log(json);
+        cardValue = json.cards[0].value;
+        cardImage = json.cards[0].image;
+        console.log(`deck id fetched from reshuffle: ${deckID}`);
+    }
+
+    fetchCard();
+    
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/draw/?count=1");
     if (card !== undefined){ //if given a perameter, updates the image   
-        card.src = deckUpdate.cards[0].image //updates card picture
+        card.src = cardImage; //updates card picture
     }
-    deckID = deckUpdate.deck_id;
-    let value = deckUpdate.cards[0].value;
-    if (value === "ACE"){
+    if (cardValue === "ACE"){
         if (playerScore < 11){ //Won't add 11 if it would bust
             isAce_P = true;
             playerScore += 11;
