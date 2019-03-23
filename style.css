@@ -48,6 +48,12 @@ background-color: #203D0F;
     border-width: 10px;
     border-color: #63372C;
 }
+
+h2{
+    font-family: 'Lobster';
+    font-size: 25px;
+}
+
 .dealerHand{
     background-color: #203D0F;
     display: flex;
@@ -177,3 +183,8 @@ background-color: #203D0F;
     -ms-transform: translate(-50%,-50%);
   }
 
+  .form{
+    font-family: 'Lobster';
+    font-size: 25px;
+    margin: 25px 25px 25px 25px;
+  }
