@@ -1,0 +1,6 @@
+.test{
+    height: 300;
+    background-color: green; 
+    display: flex;
+    justify-content: center;
+}
