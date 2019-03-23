@@ -273,4 +273,4 @@ stayButton.addEventListener("click", () => {
     checkBust_D();
     winOrLose();
 }); 
-quitButton.addEventListener("click", reShuffle());
+quitButton.addEventListener("click", alert('There is no escape'));
