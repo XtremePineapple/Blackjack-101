@@ -24,6 +24,10 @@ let ovrText = document.getElementById("text");
 
 let deckID = "";
 
+function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
 let deckUpdate = {}; //Sample Return
 //     "remaining": 51,
 //     "success": true,
