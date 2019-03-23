@@ -4,7 +4,7 @@ let playerScore = 0;
 let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
-let count = 0;
+let ante = 25;
 
 let hitButton = document.getElementById("hit");
 let dealButton = document.getElementById("deal");
@@ -67,6 +67,19 @@ function playerScore(){
         return playerScore;
     }
 }
+function checkBust_P(){
+    if (playerScore > 21 && isAce_P === true){ // false if their score is over 21 but they have an Ace as an 11
+        playerScore = playerScore - 10;
+        isAce_P = false;
+        return false;
+    }
+    else if (playerScore > 21){ // true if their score is over 21
+        return true;
+    }
+    else{// false if their score is not over 21
+        return false;
+    }
+}
 
 function dealerDraw(){
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
@@ -77,7 +90,7 @@ function dealerScore(){
     let value = deckUpdate.cards[0].value;
     if (value === "ACE"){
         if (dealerScore < 11){ //Won't add 11 if it would bust
-            isAce_P = true;
+            isAce_D = true;
             dealerScore += 11;
             return dealerScore;
         } else {
@@ -90,6 +103,19 @@ function dealerScore(){
     } else {
         dealerScore += Number(value);
         return dealerScore;
+    }
+}
+function checkBust_D(){
+    if (dealerScore > 21 && isAce_D === true){ // false if their score is over 21 but they have an Ace as an 11
+        dealerScore = dealerScore - 10;
+        isAce_D = false;
+        return false;
+    }
+    else if (dealerScore > 21){ // true if their score is over 21
+        return true;
+    }
+    else{// false if their score is not over 21
+        return false;
     }
 }
 
