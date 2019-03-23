@@ -112,7 +112,7 @@ function playerDrawAndScore(card){
         playerScore += 10;
         return playerScore;
     } else {
-        playerScore += Number(value);
+        playerScore += Number(cardValue);
         return playerScore;
     }
 }
