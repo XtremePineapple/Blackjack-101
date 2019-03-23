@@ -4,7 +4,7 @@ let playerScore = 0;
 let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
-let bankAmnt = 100;
+let bankVal = 100;
 let gameOver = false;
 
 let hitButton = document.getElementById("hit");
