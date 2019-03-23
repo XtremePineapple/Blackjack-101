@@ -6,6 +6,12 @@
     border: none;
 }
 
+.header h1{
+    color: black;
+    font-size: 25pt;
+    font-family: 'Lobster';
+}
+
 .header-title{
     margin: 50px 0 50px 0;
     background-color: white;
