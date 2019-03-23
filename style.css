@@ -138,6 +138,7 @@ background-color: #203D0F;
 
     .playerControls{
     width:15%;
+    text-shadow: 1px 1px #FFC914;
     border:solid;
     border-top-width: 5px;
     border-bottom-width: 5px;
@@ -148,6 +149,7 @@ background-color: #203D0F;
 
 .dealerControls{
     width:15%;
+    text-shadow: 1px 1px #FFC914;
     border:solid;
     border-top-width: 5px;
     border-bottom-width: 5px;
