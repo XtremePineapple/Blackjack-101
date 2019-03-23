@@ -13,15 +13,26 @@
         </div>
     </div>
     <div class="dealerHand">
-        <table width="100%" >
-            <td id="overflow" width="15%">
-                <ul>
-                </ul>
-            </td>
-            <td id="card1" width="35%"></td>
-            <td id="card2" width="35%"></td>
-            <td id="counters" ></td>
-        </table>
+        <div class="dealerOverflow">
+            <ul id="dOverflow">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+            </ul>
+        </div>
+       
+        <div class="dealerCard1"><img src="" id="dCard1"></div>
+        
+        <div class="dealerCard2"><img src="" id="dCard2"></div>
+        
+        <div class="dealerControls"></div>
     </div>
     <div class="buttonArea">
         <button type="button" class="button" id="deal">Deal Me In!</button>
@@ -29,12 +40,27 @@
         <button type="button" class="button" id="stay">Stay</button>
         <button type="button" class="button" id="quit">Quit</button>
     </div>
-    <div class="player-hand">
-        <div class="overflow-2"></div>
-        <div class="card1"></div>
-        <div class="card2"></div>
-        <div class="play-controls"></div>
+    <div class="playerHand">
+        <div class="playerOverflow">
+                <ul id="pOverflow">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </div>
 
+        <div class="playerCard1"><img src="" id="pCard1"></div>
+        
+        <div class="playerCard2"><img src="" id="pCard2"></div>
+
+        <div class="playerControls"></div>
     </div>
     <script src="gameLogic.js"></script>
 </body>
