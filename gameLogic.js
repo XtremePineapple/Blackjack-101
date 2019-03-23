@@ -82,6 +82,7 @@ function checkBust_P(){
     }
 }
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
+    //bank += ante*3 money
     return (playerScore === 21)
 }
 
@@ -134,7 +135,16 @@ function dealerLogic(){
     return dealerScore;
 }
 
-hitButton.addEventListener("click", playerDraw());
+function winOrLose(){//determines winner or loser after dealer finishes getting cards
+    if (playerScore > dealerScore){
+       // bank += 2*ante money
+       return "WIN"
+    }
+    else if (playerscore === dealerScore){  //push event
+        // bank += ante money
+    } 
+}
+
 dealButton.addEventListener("click", () => {
     reShuffle();
     playerDraw();
@@ -144,5 +154,9 @@ dealButton.addEventListener("click", () => {
     checkBlackJack_P();
     checkBlackJack_D();
 });
-stayButton.addEventListener("click", ); //TODO: Add functions to be called
-quitButton.addEventListener("click", reShuffle()); //TODO: Add functions to be called
+hitButton.addEventListener("click", playerDraw());
+stayButton.addEventListener("click", () => {
+    dealerLogic();
+    winOrLose();
+}); 
+quitButton.addEventListener("click", reShuffle());
