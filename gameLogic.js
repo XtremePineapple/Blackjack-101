@@ -6,7 +6,7 @@ let isAce_P = false;
 let isAce_D = false;
 let anteVal = 10;
 let bankAmnt = 100;
-let win = false;
+let gameOver = false;
 
 let hitButton = document.getElementById("hit");
 let dealButton = document.getElementById("deal");
@@ -15,10 +15,13 @@ let quitButton = document.getElementById("quit");
 let bank = document.getElementById("bank");
 let ante = document.getElementById("ante");
 
-let pCard1 = document.getElementById("pCard1")
-let pCard2 = document.getElementById("pCard2")
-let dCard1 = document.getElementById("dCard1")
-let dCard2 = document.getElementById("dCard2")
+let pCard1 = document.getElementById("pCard1");
+let pCard2 = document.getElementById("pCard2");
+let dCard1 = document.getElementById("dCard1");
+let dCard2 = document.getElementById("dCard2");
+
+let overlay = document.getElementById("overlay");
+let ovrText = document.getElementById("text");
 
 let deckID = "";
 
@@ -79,20 +82,16 @@ function checkBust_P(){
     if (playerScore > 21 && isAce_P === true){ // false if their score is over 21 but they have an Ace as an 11
         playerScore = playerScore - 10;
         isAce_P = false;
-        return false;
     }
     else if (playerScore > 21){ // true if their score is over 21
-        return true;
-    }
-    else{// false if their score is not over 21
-        return false;
+        BUST();
     }
 }
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
     //bank += ante*3 money
     if (playerScore === 21){
         win = true;
-        Win();
+        BLACKJACK();
     }
 }
 
@@ -126,15 +125,12 @@ function checkBust_D(){
         isAce_D = false;
     }
     else if (dealerScore > 21){ // true if their score is over 21
-        return true;
-    }
-    else{// false if their score is not over 21
-        return false;
+        WIN();
     }
 }
 function checkBlackJack_D(){//comes immediately after deal and checkBlackJack_P()
-    if(dealerScore === 21 && win === false){
-        Lose();
+    if(dealerScore === 21 && gameOver === false){
+        BLACKJACKDealer();
     }
 }
 
@@ -156,25 +152,31 @@ function winOrLose(){//determines winner or loser after dealer finishes getting 
     } 
 }
 
-function WIN(){
-    //TODO
+function BLACKJACK(){
+    ovrText.innerHTML = "BLACKJACK! You Win!"
+    overlay.style.display = "block" 
 }
-function LOSE(){
-    //TODO
+function BLACKJACKDealer(){
+    ovrText.innerHTML = "The house got Blackjack! Better luck next time..."
+    overlay.style.display = "block"
+}
+function off(){
+    document.getElementById("overlay").style.display = "none";
 }
 
 dealButton.addEventListener("click", () => {
     reShuffle();
     playerDrawAndScore(pCard1);
-    dealerDrawAndScore(dCard1);
-    playerDrawAndScore(pCard2);
-    dealerDrawAndScore(dCard2);
-    checkBlackJack_P();
+    setTimeout(dealerDrawAndScore(dCard1), 1000);
+    setTimeout(playerDrawAndScore(pCard2), 1000);
+    setTimeout(dealerDrawAndScore(dCard2), 1000);
+    setTimeout(checkBlackJack_P(), 1000);
     checkBlackJack_D();
 });
 hitButton.addEventListener("click", playerDrawAndScore());
 stayButton.addEventListener("click", () => {
     dealerLogic();
+    checkBust_D();
     winOrLose();
 }); 
 quitButton.addEventListener("click", reShuffle());
