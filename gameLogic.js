@@ -89,7 +89,7 @@ function checkBust_P(){
     }
 }
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
-    //bank += ante*3 money
+    bank += ante*3 money
     if (playerScore === 21){
         win = true;
         Win();
@@ -126,6 +126,7 @@ function checkBust_D(){
         isAce_D = false;
     }
     else if (dealerScore > 21){ // true if their score is over 21
+        bank =+ ante * 2
         return true;
     }
     else{// false if their score is not over 21
@@ -156,6 +157,11 @@ function winOrLose(){//determines winner or loser after dealer finishes getting 
     } 
 }
 
+function anteFromBank(){
+    bank -= ante
+}
+
+
 function WIN(){
     //TODO
 }
@@ -165,6 +171,7 @@ function LOSE(){
 
 dealButton.addEventListener("click", () => {
     reShuffle();
+    anteFromBank();
     playerDrawAndScore(pCard1);
     dealerDrawAndScore(dCard1);
     playerDrawAndScore(pCard2);
