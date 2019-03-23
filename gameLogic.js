@@ -51,8 +51,12 @@ function playerDraw(){
 function playerScore(){
     let value = deckUpdate.cards[0].value;
     if (value === "ACE"){
-        isAce_P = true;
-        playerScore += 11;
+        if (playerScore < 11){ //Won't add 11 if it would bust
+            isAce_P = true;
+            playerScore += 11;
+        } else {
+            playerScore += 1;
+        }
     } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
         playerScore += 10;
     } else {
@@ -65,7 +69,21 @@ function dealerDraw(){
     deckID = deckUpdate.deck_id;
     dealerHand.push(deckUpdate.cards[0].value);
 }
-
+function dealerScore(){
+    let value = deckUpdate.cards[0].value;
+    if (value === "ACE"){
+        if (dealerScore < 11){ //Won't add 11 if it would bust
+            isAce_P = true;
+            dealerScore += 11;
+        } else {
+            dealerScore += 1;
+        }
+    } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
+        dealerScore += 10;
+    } else {
+        dealerScore += Number(value);
+    }
+}
 
 console.log(deckUpdate.cards[0].code) //Syntax to reference the object the API 
 
