@@ -108,7 +108,7 @@ function playerDrawAndScore(card){
             playerScore += 1;
             return playerScore;
         }
-    } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
+    } else if (cardValue === "KING" || cardValue === "QUEEN" || cardValue === "JACK"){
         playerScore += 10;
         return playerScore;
     } else {
