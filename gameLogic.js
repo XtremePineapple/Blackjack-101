@@ -183,12 +183,15 @@ function dealerLogic(){
 
 function winOrLose(){//determines winner or loser after dealer finishes getting cards
     if (playerScore > dealerScore){
-       bank += 2*ante 
-       return "WIN"
+       bank.innerHTML += 2*ante
+       WIN();
     }
     else if (playerscore === dealerScore){  //push event
-        bank += ante
-    } 
+        bank.innerHTML += ante
+        TIE();
+    } else {
+        LOSE();
+    }
 }
 
 function BLACKJACK(){
@@ -206,7 +209,8 @@ function anteFromBank(){
 
 
 function WIN(){
-    //TODO
+    ovrText.innerHTML = "You Win!"
+    overlay.style.display = "block" 
 }
 
 function off(){
