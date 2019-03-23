@@ -1,10 +1,25 @@
 .header{
-    height: 150px;
-    background-color: green;
+    height: 200px;
+    background-image: url(images/headerpic.jpg);
     display: flex;
     justify-content: center;
-    border: solid;
-    border-color: black;
+    border: none;
+}
+
+.header-title{
+    margin: 50px 0 50px 0;
+    background-color: white;
+    opacity: .75;
+    display: flex;
+    align-content: center;
+    border-radius: 25px;
+    padding: 0 50px 0 50px;
+    
+}
+
+.header h1{
+    color: black;
+    font-size: 25pt;
 }
 
 .buttonArea{
@@ -28,7 +43,6 @@
     font-family: 'Lobster';
 }
 
-
 h2{
     font-size: 25px;
     font-family: 'Lobster';
@@ -42,4 +56,34 @@ h2{
     font-family: 'Lobster';
     font-size: 20px;
     align-content: right;
+}
+.player-hand{
+    display: flex;
+    height: 300px;
+    border: solid;
+    border-color: blue;
+}
+
+.overflow-2{
+    width: 15%;    
+    border:solid;
+    border-color: black;
+}
+
+.card1{
+    width:35%;
+    border:solid;
+    border-color: black;
+}
+
+.card2{
+    width:35%;
+    border:solid;
+    border-color: black;
+}
+
+.play-controls{
+    width:15%;
+    border:solid;
+    border-color: black;
 }
