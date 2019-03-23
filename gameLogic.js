@@ -5,6 +5,7 @@ let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
 let ante = 25;
+let bank = 100;
 
 let hitButton = document.getElementById("hit");
 let dealButton = document.getElementById("deal");
@@ -80,6 +81,9 @@ function checkBust_P(){
         return false;
     }
 }
+function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
+    return (playerScore === 21)
+}
 
 function dealerDraw(){
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
@@ -90,12 +94,12 @@ function dealerScore(){
     let value = deckUpdate.cards[0].value;
     if (value === "ACE"){
         if (dealerScore < 11){ //Won't add 11 if it would bust
-            isAce_D = true;
-            dealerScore += 11;
-            return dealerScore;
-        } else {
-            dealerScore += 1;
-            return dealerScore;
+        isAce_D = true;
+        dealerScore += 11;
+        return dealerScore;
+    } else {
+        dealerScore += 1;
+        return dealerScore;
         }
     } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
         dealerScore += 10;
@@ -118,5 +122,27 @@ function checkBust_D(){
         return false;
     }
 }
+function checkBlackJack_D(){//comes immediately after deal and checkBlackJack_P()
+    return (dealerScore === 21)
+}
 
-console.log(deckUpdate.cards[0].code) //Syntax to reference the object the API 
+
+function dealerLogic(){
+    while (dealerScore < 17){
+        dealerDraw();
+    }
+    return dealerScore;
+}
+
+hitButton.addEventListener("click", playerDraw());
+dealButton.addEventListener("click", () => {
+    reShuffle();
+    playerDraw();
+    dealerDraw();
+    playerDraw();
+    dealerDraw();
+    checkBlackJack_P();
+    checkBlackJack_D();
+});
+stayButton.addEventListener("click", ); //TODO: Add functions to be called
+quitButton.addEventListener("click", reShuffle()); //TODO: Add functions to be called
