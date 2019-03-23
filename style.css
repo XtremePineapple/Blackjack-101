@@ -42,3 +42,34 @@
     font-size: 25px;
     font-family: 'Lobster';
 }
+
+.player-hand{
+    display: flex;
+    height: 300px;
+    border: solid;
+    border-color: blue;
+}
+
+.overflow-2{
+    width: 15%;    
+    border:solid;
+    border-color: black;
+}
+
+.card1{
+    width:35%;
+    border:solid;
+    border-color: black;
+}
+
+.card2{
+    width:35%;
+    border:solid;
+    border-color: black;
+}
+
+.play-controls{
+    width:15%;
+    border:solid;
+    border-color: black;
+}
