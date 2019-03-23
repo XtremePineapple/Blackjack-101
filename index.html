@@ -12,6 +12,9 @@
             <h1> Black Jack 101</h1>
         </div>
     </div>
+    <div id="overlay">
+        <div id="text">Overlay Text</div>
+    </div>
     <div class="dealerHand">
         <div class="dealerOverflow">
             <ul id="dOverflow">
@@ -34,12 +37,21 @@
         
         <div class="dealerControls"></div>
     </div>
-    <div class="buttonArea">
-        <button type="button" class="button" id="deal">Deal Me In!</button>
-        <button type="button" class="button" id="hit">Hit</button>
-        <button type="button" class="button" id="stay">Stay</button>
-        <button type="button" class="button" id="quit">Quit</button>
+    <div> 
+            <h2>Black Jack Pays 3x</h2>
+            <h2>Winner Pays 2x</h2>  
+            <form class="form">
+                    Bank: 
+                    <p name="bank" id="bank">100</p>
+                  </form>
+            <div class="buttonArea">
+                    <button type="button" class="button" id="deal">Deal Me In!</button>
+                    <button type="button" class="button" id="hit">Hit</button>
+                    <button type="button" class="button" id="stay">Stay</button>
+                    <button type="button" class="button" id="quit">Quit</button>
+            </div>
     </div>
+<<<<<<< HEAD
     <div class="playerHand">
         <div class="playerOverflow">
                 <ul id="pOverflow">
@@ -62,5 +74,19 @@
 
         <div class="playerControls"></div>
     </div>
+=======
+    <div class="player-hand">
+        <div class="overflow-2"></div>
+        <div class="card1"></div>
+        <div class="card2"></div>
+        <div class="play-controls">
+        <form class="form">
+            <p>Bet Amount:</p>
+            <input type="number" name="bet" min="0" step="5" value="10" id="ante">
+            <p>Card Total:</p>
+            <p id="palyerScore"></p>
+            </form>
+        </div>
+>>>>>>> 2a797ee8f0278d97e81e655e714a63aec65c0a90
     <script src="gameLogic.js"></script>
 </body>
