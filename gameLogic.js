@@ -12,6 +12,7 @@ let dealButton = document.getElementById("deal");
 let stayButton = document.getElementById("stay");
 let quitButton = document.getElementById("quit");
 
+
 let deckID = "";
 
 let deckUpdate = {}; //Sample Return
