@@ -4,7 +4,7 @@ let playerScore = 0;
 let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
-let bankAmnt = 100;
+let bankVal = 100;
 let gameOver = false;
 
 let hitButton = document.getElementById("hit");
@@ -122,11 +122,11 @@ function playerDrawAndScore(card){
             playerScore += 1;
             return playerScore;
         }
-    } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
+    } else if (cardValue === "KING" || cardValue === "QUEEN" || cardValue === "JACK"){
         playerScore += 10;
         return playerScore;
     } else {
-        playerScore += Number(value);
+        playerScore += Number(cardValue);
         return playerScore;
     }
 }
@@ -142,7 +142,7 @@ function checkBust_P(){
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
     if (playerScore === 21){
         bankVal += ante*3
-        bank.innerHTML 
+        bank.innerHTML = bankVal;
         win = true;
         BLACKJACK();
     }
@@ -220,12 +220,17 @@ function dealerLogic(){
 
 function winOrLose(){//determines winner or loser after dealer finishes getting cards
     if (playerScore > dealerScore){
-       bank += 2*ante 
-       return "WIN"
+       bankVal += 2*ante;
+       bank.innerHTML =bankVal;
+       WIN();
     }
     else if (playerscore === dealerScore){  //push event
-        bank += ante
-    } 
+        bankVal += ante;
+        bank.innerHTML = bankVal;
+        TIE();
+    } else {
+        LOSE();
+    }
 }
 
 function BLACKJACK(){
@@ -243,7 +248,18 @@ function anteFromBank(){
 
 
 function WIN(){
-    //TODO
+    ovrText.innerHTML = "You Win!"
+    overlay.style.display = "block" 
+}
+
+function TIE(){
+    ovrText.innerHTML = "It's a Push!"
+    overlay.style.display = "block" 
+}
+
+function LOSE(){
+    ovrText.innerHTML = "You Lose! Better luck next time..."
+    overlay.style.display = "block" 
 }
 
 function off(){
