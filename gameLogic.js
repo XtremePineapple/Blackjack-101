@@ -128,7 +128,7 @@ function checkBust_P(){
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
     if (playerScore === 21){
         bankVal += ante*3
-        bank.innerHTML 
+        bank.innerHTML = bankVal;
         win = true;
         BLACKJACK();
     }
@@ -183,11 +183,13 @@ function dealerLogic(){
 
 function winOrLose(){//determines winner or loser after dealer finishes getting cards
     if (playerScore > dealerScore){
-       bank.innerHTML += 2*ante
+       bankVal += 2*ante;
+       bank.innerHTML =bankVal;
        WIN();
     }
     else if (playerscore === dealerScore){  //push event
-        bank.innerHTML += ante
+        bankVal += ante;
+        bank.innerHTML = bankVal;
         TIE();
     } else {
         LOSE();

@@ -69,6 +69,7 @@ background-color: #203D0F;
 h2{
     font-family: 'Lobster';
     font-size: 25px;
+    display: inline;
 }
 
 .dealerHand{
