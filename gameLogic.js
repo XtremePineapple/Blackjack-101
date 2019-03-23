@@ -45,15 +45,28 @@ function reShuffle(){
 function playerDraw(){
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
     deckID = deckUpdate.deck_id;
-    playerHand.push(deckUpdate.cards[0].code);
+    playerHand.push(deckUpdate.cards[0].value);
+    return playerHand;
+}
+function playerScore(){
+    let value = deckUpdate.cards[0].value;
+    if (value === "ACE"){
+        isAce_P = true;
+        playerScore += 11;
+    } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
+        playerScore += 10;
+    } else {
+        playerScore += Number(value);
+    }
 }
 
-function dealerDraw(deck){
+function dealerDraw(){
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
     deckID = deckUpdate.deck_id;
-    dealerHand.push(deckUpdate.cards[0].code);    
+    dealerHand.push(deckUpdate.cards[0].value);
 }
 
 
 console.log(deckUpdate.cards[0].code) //Syntax to reference the object the API 
+
 
