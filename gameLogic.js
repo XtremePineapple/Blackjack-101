@@ -5,6 +5,12 @@ let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
 let count = 0;
+
+let hitButton = document.getElementById("hit");
+let dealButton = document.getElementById("deal");
+let stayButton = document.getElementById("stay");
+let quitButton = document.getElementById("quit");
+
 let deckID = "";
 
 let deckUpdate = { //Sample Return
@@ -61,7 +67,6 @@ function dealerDraw(){
 }
 
 
-
-
-
 console.log(deckUpdate.cards[0].code) //Syntax to reference the object the API 
+
+
