@@ -4,7 +4,6 @@ let playerScore = 0;
 let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
-let anteVal = 10;
 let bankAmnt = 100;
 let gameOver = false;
 
@@ -89,7 +88,8 @@ function checkBust_P(){
 }
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
     if (playerScore === 21){
-        bank += ante*3
+        bankVal += ante*3
+        bank.innerHTML 
         win = true;
         BLACKJACK();
     }
@@ -162,7 +162,7 @@ function BLACKJACKDealer(){
 }
 
 function anteFromBank(){
-    bank -= ante
+    bankVal -= ante
 }
 
 
