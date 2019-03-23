@@ -266,7 +266,7 @@ function off(){
     document.getElementById("overlay").style.display = "none";
 }
 
-dealButton.addEventListener("click", playerDrawAndScore(pCard1));
+dealButton.addEventListener("click", playerDrawAndScore);
 hitButton.addEventListener("click", playerDrawAndScore());
 stayButton.addEventListener("click", () => {
     dealerLogic();
