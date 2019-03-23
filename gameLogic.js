@@ -88,8 +88,8 @@ function checkBust_P(){
     }
 }
 function checkBlackJack_P(){//black jack event.  Comes immediately after initial deal
-    //bank += ante*3 money
     if (playerScore === 21){
+        bank += ante*3
         win = true;
         BLACKJACK();
     }
@@ -160,12 +160,23 @@ function BLACKJACKDealer(){
     ovrText.innerHTML = "The house got Blackjack! Better luck next time..."
     overlay.style.display = "block"
 }
+
+function anteFromBank(){
+    bank -= ante
+}
+
+
+function WIN(){
+    //TODO
+}
+
 function off(){
     document.getElementById("overlay").style.display = "none";
 }
 
 dealButton.addEventListener("click", () => {
     reShuffle();
+    anteFromBank();
     playerDrawAndScore(pCard1);
     setTimeout(dealerDrawAndScore(dCard1), 1000);
     setTimeout(playerDrawAndScore(pCard2), 1000);
