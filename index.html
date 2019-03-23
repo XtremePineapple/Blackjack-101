@@ -21,11 +21,21 @@
             <td id="counters" ></td>
         </table>
     </div>
-    <div class="buttonArea">
-        <button type="button" class="button" id="deal">Deal Me In!</button>
-        <button type="button" class="button" id="hit">Hit</button>
-        <button type="button" class="button" id="stay">Stay</button>
-        <button type="button" class="button" id="quit">Quit</button>
+    <div> 
+            <h2>Black Jack Pays 3x</h2>
+            <h2>Winner Pays 2x</h2>  
+            <form class="form">
+                    Bank:
+                    <p name="bank" id="bank"></p>
+                    <p>Bet Amount:</p>
+                    <input type="number" name="bet" min="0" step="5" id="ante">
+                  </form>
+            <div class="buttonArea">
+                    <button type="button" class="button" id="deal">Deal Me In!</button>
+                    <button type="button" class="button" id="hit">Hit</button>
+                    <button type="button" class="button" id="stay">Stay</button>
+                    <button type="button" class="button" id="quit">Quit</button>
+            </div>
     </div>
     <div class="playerHand"></div>
     <script src="gameLogic.js"></script>

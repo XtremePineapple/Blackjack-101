@@ -28,7 +28,18 @@
     font-family: 'Lobster';
 }
 
+
+h2{
+    font-size: 25px;
+    font-family: 'Lobster';
+}
 /* this will turn the button text greay when they shouldn't click it */
 .deactivated{
     color: grey;
+}
+
+.form{
+    font-family: 'Lobster';
+    font-size: 20px;
+    align-content: right;
 }
