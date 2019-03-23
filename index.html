@@ -13,7 +13,7 @@
         </div>
     </div>
     <div id="overlay">
-        <div id="text">Overlay Text</div>
+        <div id="text" onclick="off()">Overlay Text</div>
     </div>
     <div class="dealerHand">
         <div class="dealerOverflow">
@@ -41,9 +41,9 @@
             <h2>Black Jack Pays 3x</h2>
             <h2>Winner Pays 2x</h2>  
             <form class="form">
-                    Bank: 
-                    <p name="bank" id="bank">100</p>
-                  </form>
+                Bank: 
+                <p name="bank" id="bank">100</p>
+            </form> 
             <div class="buttonArea">
                     <button type="button" class="button" id="deal">Deal Me In!</button>
                     <button type="button" class="button" id="hit">Hit</button>
@@ -71,7 +71,14 @@
         
         <div class="playerCard2"><img src="" id="pCard2"></div>
 
-        <div class="playerControls"></div>
+        <div class="playerControls">
+            <form class="form">
+                <p>Bet Amount:</p>
+                <input type="number" name="bet" min="0" step="5" value="10" style="width: 7em" id="ante">
+                <p>Card Total:</p>
+                <p id="playerScore"></p>
+            </form>
+        </div>
     </div>
     <script src="gameLogic.js"></script>
 </body>

@@ -6,6 +6,12 @@
     border: none;
 }
 
+.header h1{
+    color: black;
+    font-size: 25pt;
+    font-family: 'Lobster';
+}
+
 .header-title{
     margin: 50px 0 50px 0;
     background-color: white;
@@ -20,6 +26,7 @@
 .header h1{
     color: black;
     font-size: 25pt;
+    font-family: 'Lobster';
 }
 
 .buttonArea{
@@ -47,6 +54,12 @@ background-color: #203D0F;
     border-width: 10px;
     border-color: #63372C;
 }
+
+h2{
+    font-family: 'Lobster';
+    font-size: 25px;
+}
+
 .dealerHand{
     background-color: #203D0F;
     display: flex;
@@ -122,6 +135,7 @@ background-color: #203D0F;
     border-right-width: 5px;
     border-color: #FFC914;}
 
+
 .dealerControls{
     width:15%;
     border:solid;
@@ -149,3 +163,34 @@ background-color: #203D0F;
     padding: 20px;
     font-family: 'Lobster';
 }
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 150px;
+    color: white;
+    font-family: "Lobster";
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+
+  .form{
+    font-family: 'Lobster';
+    font-size: 25px;
+    margin: 25px 25px 25px 25px;
+  }
