@@ -54,13 +54,17 @@ function playerScore(){
         if (playerScore < 11){ //Won't add 11 if it would bust
             isAce_P = true;
             playerScore += 11;
+            return playerScore;
         } else {
             playerScore += 1;
+            return playerScore;
         }
     } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
         playerScore += 10;
+        return playerScore;
     } else {
         playerScore += Number(value);
+        return playerScore;
     }
 }
 
@@ -75,16 +79,18 @@ function dealerScore(){
         if (dealerScore < 11){ //Won't add 11 if it would bust
             isAce_P = true;
             dealerScore += 11;
+            return dealerScore;
         } else {
             dealerScore += 1;
+            return dealerScore;
         }
     } else if (value === "KING" || value === "QUEEN" || value === "JACK"){
         dealerScore += 10;
+        return dealerScore;
     } else {
         dealerScore += Number(value);
+        return dealerScore;
     }
 }
 
 console.log(deckUpdate.cards[0].code) //Syntax to reference the object the API 
-
-
