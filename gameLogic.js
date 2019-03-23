@@ -53,7 +53,7 @@ function reShuffle(){
         let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
         let json =  await response.json();
         deckID = json.deck_id;
-        console.log(`deck id fetched from reshuffle: ${deckID}`);l
+        console.log(`deck id fetched from reshuffle: ${deckID}`);
     }
     
     fetchDeckId();   
@@ -73,32 +73,46 @@ function playerDrawAndScore(card){
     let cardValue;
     let cardImage;
 
-    const fetchDeckId = async () => {
-        let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
-        let json =  await response.json();
-        deckID = json.deck_id;
-        console.log(`deck id fetched from reshuffle: ${deckID}`);
-    }
+    // const fetchDeckId = async () => {
+    //     let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+    //     let json =  await response.json();
+    //     deckID = json.deck_id;
+    //     console.log(`deck id fetched from reshuffle: ${deckID}`);
+    // }
     
-    fetchDeckId(); 
+    // fetchDeckId(); 
 
-    console.log(deckID);
+    fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=4")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
 
-    const fetchCard = async () => {
-        let response = await fetch("https://deckofcardsapi.com/api/deck/jihhvb8gyasc/draw/?count=1");
-        let json =  await response.json();
-        console.log(json);
-        cardValue = json.cards[0].value;
-        cardImage = json.cards[0].image;
-        console.log(`deck id fetched from reshuffle: ${deckID}`);
-    }
-
-    fetchCard();
+            
+            pCard1.src = data.cards[0].image; //updates card picture
+            pCard2.src = data.cards[1].image; //updates card picture
+            dCard1.src = data.cards[2].image; //updates card picture
+            dCard2.src = data.cards[3].image; //updates card picture
+        })
     
-    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/draw/?count=1");
-    if (card !== undefined){ //if given a perameter, updates the image   
-        card.src = cardImage; //updates card picture
-    }
+    
+
+    // const fetchCard = async () => {
+    //     let response = await fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=1");
+    //     let json =  await response.json();
+    //     debugger;
+    //     return json;
+    //     console.log(json);
+    //     debugger;
+        
+    //     console.log(`deck id fetched from reshuffle: ${deckID}`);
+    // }
+
+    // json = fetchCard();
+    
+
+    
+    
     if (cardValue === "ACE"){
         if (playerScore < 11){ //Won't add 11 if it would bust
             isAce_P = true;
@@ -135,7 +149,30 @@ function checkBlackJack_P(){//black jack event.  Comes immediately after initial
 }
 
 function dealerDrawAndScore(card = ''){
-    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/draw/?count=1");
+    
+    let cardValue;
+    let cardImage;
+
+    const fetchDeckId = async () => {
+        let response = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+        let json =  await response.json();
+        deckID = json.deck_id;
+        console.log(`deck id fetched from reshuffle: ${deckID}`);
+    }
+    
+    fetchDeckId(); 
+
+    console.log(deckID);
+
+    const fetchCard = async () => {
+        let response = await fetch("https://deckofcardsapi.com/api/deck/jihhvb8gyasc/draw/?count=1");
+        let json =  await response.json();
+        console.log(json);
+        cardValue = json.cards[0].value;
+        cardImage = json.cards[0].image;
+        console.log(`deck id fetched from reshuffle: ${deckID}`);
+    }
+
     if (card !== ''){
         card.src = deckUpdate.cards[0].image;
     }
@@ -229,16 +266,7 @@ function off(){
     document.getElementById("overlay").style.display = "none";
 }
 
-dealButton.addEventListener("click", () => {
-    reShuffle();
-    anteFromBank();
-    playerDrawAndScore(pCard1);
-    setTimeout(dealerDrawAndScore(dCard1), 1000);
-    setTimeout(playerDrawAndScore(pCard2), 1000);
-    setTimeout(dealerDrawAndScore(dCard2), 1000);
-    setTimeout(checkBlackJack_P(), 1000);
-    checkBlackJack_D();
-});
+dealButton.addEventListener("click", playerDrawAndScore(pCard1));
 hitButton.addEventListener("click", playerDrawAndScore());
 stayButton.addEventListener("click", () => {
     dealerLogic();
