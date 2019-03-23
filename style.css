@@ -31,6 +31,7 @@
 
 .buttonArea{
     display: flex;
+    height: 150px;
     justify-content: center;
     background-color: green;
 }
@@ -38,13 +39,23 @@
 .button{
     width: 200px;
     height: 100px;
-    margin: 10% 10px 10% 10px;
+    margin: auto;
     padding: 15px 32px;
     font-size: 20px;
     font-family: 'Lobster';
 }
 
 
+img {
+    margin: center;
+    max-height: 200px;
+}
+
+h2{
+    font-family: 'Lobster';
+    font-size: 25px;
+
+}
 
 .playerHand{
 background-color: #203D0F;
@@ -193,4 +204,4 @@ h2{
     font-family: 'Lobster';
     font-size: 25px;
     margin: 25px 25px 25px 25px;
-  }
+}
