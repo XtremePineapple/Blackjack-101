@@ -1,5 +1,5 @@
 .header{
-    height: 300px;
+    height: 150px;
     background-color: green;
     display: flex;
     justify-content: center;
@@ -19,5 +19,11 @@
     margin: 10% 10px 10% 10px;
     padding: 15px 32px;
     font-size: 20px;
+    font-family: 'Lobster';
+}
+
+.overflow{
+    list-style: none;
+    font-size: 25px;
     font-family: 'Lobster';
 }

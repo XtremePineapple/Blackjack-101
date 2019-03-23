@@ -1,16 +1,28 @@
 <!DOCTYPE html>
+
 <head>
     <title>Black Jack 101</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
+
 <body>
     <div class="header">
         <h1> Black Jack 101</h1>
     </div>
-    <div class="dealerHand"></div>
+    <div class="dealerHand">
+        <table width="100%" >
+            <td id="overflow" width="15%">
+                <ul>
+                </ul>
+            </td>
+            <td id="card1" width="35%"></td>
+            <td id="card2" width="35%"></td>
+            <td id="counters" ></td>
+        </table>
+    </div>
     <div class="buttonArea">
-        <button type="button" class= "button" id="deal">Deal Me In!</button>
+        <button type="button" class="button" id="deal">Deal Me In!</button>
         <button type="button" class="button" id="hit">Hit</button>
         <button type="button" class="button" id="stay">Stay</button>
         <button type="button" class="button" id="quit">Quit</button>
