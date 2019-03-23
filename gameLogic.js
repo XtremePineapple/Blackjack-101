@@ -21,6 +21,7 @@ let dCard2 = document.getElementById("dCard2");
 
 let overlay = document.getElementById("overlay");
 let ovrText = document.getElementById("text");
+let dOverflow = document.getElementById("dOverflow");
 
 let deckID = "";
 
@@ -130,6 +131,21 @@ function playerDrawAndScore(card){
         return playerScore;
     }
 }
+
+function playerHit(){
+
+    fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=4")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+
+            dOverflow.innerHTML += `<li>${data.cards[0].value} of ${data.cards[0].suit}</li>`
+
+        })
+    
+}
+
 function checkBust_P(){
     if (playerScore > 21 && isAce_P === true){ // false if their score is over 21 but they have an Ace as an 11
         playerScore = playerScore - 10;
@@ -267,7 +283,7 @@ function off(){
 }
 
 dealButton.addEventListener("click", playerDrawAndScore);
-hitButton.addEventListener("click", playerDrawAndScore());
+hitButton.addEventListener("click", playerHit);
 stayButton.addEventListener("click", () => {
     dealerLogic();
     checkBust_D();
