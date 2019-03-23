@@ -213,6 +213,16 @@ function WIN(){
     overlay.style.display = "block" 
 }
 
+function TIE(){
+    ovrText.innerHTML = "It's a Push!"
+    overlay.style.display = "block" 
+}
+
+function LOSE(){
+    ovrText.innerHTML = "You Lose! Better luck next time..."
+    overlay.style.display = "block" 
+}
+
 function off(){
     document.getElementById("overlay").style.display = "none";
 }
