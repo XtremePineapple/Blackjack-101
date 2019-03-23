@@ -4,7 +4,7 @@ let playerScore = 0;
 let dealerScore = 0;
 let isAce_P = false;
 let isAce_D = false;
-let ante = 25;
+let ante = 0;
 let bank = 100;
 
 let hitButton = document.getElementById("hit");
@@ -14,23 +14,23 @@ let quitButton = document.getElementById("quit");
 
 let deckID = "";
 
-let deckUpdate = { //Sample Return
-    "remaining": 51,
-    "success": true,
-    "deck_id": "96n9zskcwxhg",
-    "cards": [
-        {
-            "value": "10",
-            "images": {
-                "svg": "https://deckofcardsapi.com/static/img/0C.svg",
-                "png": "https://deckofcardsapi.com/static/img/0C.png"
-            },
-            "suit": "CLUBS",
-            "image": "https://deckofcardsapi.com/static/img/0C.png",
-            "code": "0C"
-        }
-    ]
-}
+let deckUpdate = {}; //Sample Return
+//     "remaining": 51,
+//     "success": true,
+//     "deck_id": "96n9zskcwxhg",
+//     "cards": [
+//         {
+//             "value": "10",
+//             "images": {
+//                 "svg": "https://deckofcardsapi.com/static/img/0C.svg",
+//                 "png": "https://deckofcardsapi.com/static/img/0C.png"
+//             },
+//             "suit": "CLUBS",
+//             "image": "https://deckofcardsapi.com/static/img/0C.png",
+//             "code": "0C"
+//         }
+//     ]
+// }
 
 function reShuffle(){
     //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
@@ -43,13 +43,12 @@ function reShuffle(){
     isAce_D = false;
 }
 
-function playerDraw(){
-    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
-    deckID = deckUpdate.deck_id;
-    playerHand.push(deckUpdate.cards[0].value);
-    return playerHand;
-}
-function playerScore(){
+function playerDrawAndScore(card){
+    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/draw/?count=1");
+    card.src = deckUpdate.cards[0].image //updates card picture
+    if (card !== ''){ //if given a perameter, updates the image   
+        deckID = deckUpdate.deck_id;
+    }
     let value = deckUpdate.cards[0].value;
     if (value === "ACE"){
         if (playerScore < 11){ //Won't add 11 if it would bust
@@ -86,12 +85,12 @@ function checkBlackJack_P(){//black jack event.  Comes immediately after initial
     return (playerScore === 21)
 }
 
-function dealerDraw(){
-    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/shuffle/?deck_count=1");
+function dealerDrawAndScore(card = ''){
+    //let deckUpdate = fetch("https://deckofcardsapi.com/api/deck/"+deckID+"/draw/?count=1");
+    if (card !== ''){
+        card.src = deckUpdate.cards[0].image;
+    }
     deckID = deckUpdate.deck_id;
-    dealerHand.push(deckUpdate.cards[0].value);
-}
-function dealerScore(){
     let value = deckUpdate.cards[0].value;
     if (value === "ACE"){
         if (dealerScore < 11){ //Won't add 11 if it would bust
@@ -147,10 +146,10 @@ function winOrLose(){//determines winner or loser after dealer finishes getting 
 
 dealButton.addEventListener("click", () => {
     reShuffle();
-    playerDraw();
-    dealerDraw();
-    playerDraw();
-    dealerDraw();
+    playerDrawAndScore();
+    dealerDrawAndScore();
+    playerDrawAndScore();
+    dealerDrawAndScore();
     checkBlackJack_P();
     checkBlackJack_D();
 });
