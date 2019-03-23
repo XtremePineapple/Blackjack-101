@@ -27,3 +27,8 @@
     font-size: 25px;
     font-family: 'Lobster';
 }
+
+/* this will turn the button text greay when they shouldn't click it */
+.deactivated{
+    color: grey;
+}
